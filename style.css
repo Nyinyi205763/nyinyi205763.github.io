@@ -413,38 +413,32 @@ body {
   }
 }
 
-.social-icons {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-}
-
 .social-icons a {
   width: 54px;
   height: 54px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
   border-radius: 50%;
-  color: white;
-  text-decoration: none;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(79, 163, 255, 0.22);
+  border: 1px solid rgba(79, 163, 255, 0.25);
   backdrop-filter: blur(12px);
-  transition: var(--transition);
+  transition: 0.3s ease;
 }
 
-.social-icons a i {
-  font-size: 20px;
+/* 🔥 FIX ICON SIZE + COLOR */
+.social-icons a svg {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;      /* 🔥 WHITE COLOR */
+  display: block;
 }
 
+/* hover glow */
 .social-icons a:hover {
-  transform: translateY(-6px) scale(1.08);
+  transform: scale(1.1);
   background: rgba(24, 119, 242, 0.2);
-  border-color: rgba(79, 163, 255, 0.62);
-  box-shadow: 0 10px 24px rgba(24, 119, 242, 0.32);
+  box-shadow: 0 0 15px rgba(24,119,242,0.4);
 }
 
 .stagger-icons a {
