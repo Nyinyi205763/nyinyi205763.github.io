@@ -226,27 +226,6 @@ h3 { margin: 30px 0 15px; color: #ccc; font-weight: 400; text-transform: upperca
     color: #ccc;
     display: block;
 }
-/* --- 📅 Timeline & Experience --- */
-.timeline-item { position: relative; padding-left: 30px; margin-bottom: 25px; border-left: 1px solid rgba(255,255,255,0.1); }
-.timeline-item::before { content: ""; position: absolute; left: -6px; top: 8px; width: 10px; height: 10px; background: var(--neon-blue); border-radius: 50%; box-shadow: 0 0 15px var(--neon-blue); }
-
-.exp-item {
-    margin-bottom: 35px;
-    padding-left: 20px;
-    border-left: 2px solid var(--glass-border);
-    transition: 0.3s;
-}
-.exp-item:hover {
-    border-left-color: var(--neon-blue);
-    background: rgba(255, 255, 255, 0.02);
-}
-
-.job-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-.job-title { color: var(--neon-blue); font-weight: 700; font-size: 1.15em; }
-.company-info { color: #fff; font-size: 1em; margin: 5px 0; opacity: 0.9; }
-.work-tag { font-size: 0.75em; background: rgba(0, 242, 254, 0.15); color: var(--neon-blue); padding: 3px 12px; border-radius: 20px; font-weight: bold; }
-.exp-location { font-size: 0.85em; color: #888; display: block; margin-top: 4px; }
-
 /* --- ⚡ Skills Grid --- */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px; }
 .skill-box { 
@@ -458,4 +437,155 @@ h3 { margin: 30px 0 15px; color: #ccc; font-weight: 400; text-transform: upperca
     transform: none;
     border-color: rgba(255,255,255,0.1);
     box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* =========================
+   🔥 SOCIAL GLASS BAR FULL FX
+========================= */
+
+.social-glass-bar {
+    margin-top: 80px;
+    text-align: center;
+    padding-bottom: 30px;
+    position: relative;
+}
+
+/* 🔥 neon divider */
+.glass-line {
+    width: 65%;
+    height: 2px;
+    margin: 0 auto 25px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(0, 242, 254, 0.7),
+        transparent
+    );
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+}
+
+/* 🔥 pulse animation */
+.pulse-line {
+    animation: pulseGlow 2.2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0% {
+        opacity: 0.6;
+        box-shadow: 0 0 10px rgba(0, 242, 254, 0.35);
+        transform: scaleX(1);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 25px rgba(0, 242, 254, 0.8);
+        transform: scaleX(1.03);
+    }
+    100% {
+        opacity: 0.6;
+        box-shadow: 0 0 10px rgba(0, 242, 254, 0.35);
+        transform: scaleX(1);
+    }
+}
+
+/* 🔥 icons row */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+/* 🔥 glass icons */
+.social-icons a {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 50%;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition: all 0.35s ease;
+    box-shadow: 0 0 0 rgba(0, 242, 254, 0);
+}
+
+/* 🔥 hover */
+.social-icons a:hover {
+    transform: translateY(-6px) scale(1.1);
+    background: rgba(0, 242, 254, 0.25);
+    border-color: #00f2fe;
+    box-shadow: 0 10px 25px rgba(0, 242, 254, 0.5);
+}
+
+/* 🔥 stagger reveal initial state */
+.stagger-icons a {
+    opacity: 0;
+    transform: translateY(25px) scale(0.9);
+    animation: none;
+}
+
+/* JS က .show class ထည့်ပေးမယ် */
+.stagger-icons.show a {
+    animation: staggerReveal 0.6s ease forwards;
+}
+
+.stagger-icons.show a:nth-child(1) { animation-delay: 0.08s; }
+.stagger-icons.show a:nth-child(2) { animation-delay: 0.18s; }
+.stagger-icons.show a:nth-child(3) { animation-delay: 0.28s; }
+.stagger-icons.show a:nth-child(4) { animation-delay: 0.38s; }
+
+@keyframes staggerReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 🔥 ripple circle */
+.ripple-btn .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    background: rgba(255, 255, 255, 0.45);
+    animation: rippleEffect 0.65s linear;
+    pointer-events: none;
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* 🔥 mobile */
+@media (max-width: 768px) {
+    .glass-line {
+        width: 80%;
+    }
+
+    .social-icons {
+        gap: 16px;
+    }
+
+    .social-icons a {
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+    }
 }
