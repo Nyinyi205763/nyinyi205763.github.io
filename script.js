@@ -7,9 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* -------------------------
-     Typewriter
-  ------------------------- */
+  /* Typewriter */
   const textElement = document.getElementById("typewriter");
   const phrases = [
     "Marketing Specialist",
@@ -34,25 +32,23 @@ document.addEventListener("DOMContentLoaded", () => {
       textElement.textContent = currentPhrase.substring(0, charIndex);
     }
 
-    let typeSpeed = isDeleting ? 45 : 95;
+    let speed = isDeleting ? 45 : 90;
 
     if (!isDeleting && charIndex === currentPhrase.length) {
-      typeSpeed = 1700;
+      speed = 1600;
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
       phraseIndex = (phraseIndex + 1) % phrases.length;
-      typeSpeed = 450;
+      speed = 450;
     }
 
-    setTimeout(typeWriter, typeSpeed);
+    setTimeout(typeWriter, speed);
   }
 
   typeWriter();
 
-  /* -------------------------
-     Mobile menu
-  ------------------------- */
+  /* Mobile Menu */
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
 
@@ -68,31 +64,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* -------------------------
-     Lightbox
-  ------------------------- */
+  /* Lightbox */
   const galleryItems = document.querySelectorAll(".gallery-item");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
   const closeLightbox = document.getElementById("closeLightbox");
 
-  if (galleryItems.length && lightbox && lightboxImg) {
-    galleryItems.forEach((img) => {
-      img.addEventListener("click", () => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt || "Preview";
-        lightbox.classList.add("active");
-        lightbox.setAttribute("aria-hidden", "false");
-      });
+  galleryItems.forEach((img) => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || "Preview";
+      lightbox.classList.add("active");
+      lightbox.setAttribute("aria-hidden", "false");
     });
-  }
+  });
 
-  if (closeLightbox && lightbox) {
+  if (closeLightbox) {
     closeLightbox.addEventListener("click", () => {
       lightbox.classList.remove("active");
       lightbox.setAttribute("aria-hidden", "true");
     });
+  }
 
+  if (lightbox) {
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) {
         lightbox.classList.remove("active");
@@ -108,44 +102,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* -------------------------
-     Blob parallax
-  ------------------------- */
-  const blob1 = document.querySelector(".blob-1");
-  const blob2 = document.querySelector(".blob-2");
-  const blob3 = document.querySelector(".blob-3");
-
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-
-    if (blob1) blob1.style.transform = `translateY(${scrollY * 0.18}px)`;
-    if (blob2) blob2.style.transform = `translateY(${scrollY * -0.12}px)`;
-    if (blob3) blob3.style.transform = `translateY(${scrollY * 0.08}px)`;
-  });
-
-  /* -------------------------
-     Stagger reveal for social icons
-  ------------------------- */
+  /* Social stagger reveal */
   const staggerIcons = document.querySelector(".stagger-icons");
 
   if (staggerIcons) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            staggerIcons.classList.add("show");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          staggerIcons.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
 
     observer.observe(staggerIcons);
   }
 
-  /* -------------------------
-     Ripple effect
-  ------------------------- */
+  /* Ripple effect */
   document.querySelectorAll(".ripple-btn").forEach((button) => {
     button.addEventListener("click", function (e) {
       const ripple = document.createElement("span");
