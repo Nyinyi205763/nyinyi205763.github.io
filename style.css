@@ -266,7 +266,18 @@ body {
   border-color: rgba(79, 163, 255, 0.5);
   box-shadow: 0 12px 30px rgba(79, 163, 255, 0.16);
 }
+@media (max-width: 760px) {
+  .hero-buttons {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
 
+  .hero-buttons .btn {
+    width: min(100%, 380px);
+    min-width: unset;
+  }
+}
 .hero-profile {
   display: flex;
   justify-content: center;
