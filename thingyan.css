@@ -1,0 +1,139 @@
+/* ၁။ ပွင့်ဖက်များ */
+.petal-leaf {
+    position: fixed;
+    top: -50px;
+    z-index: 9999;
+    pointer-events: none;
+    width: 40px !important;
+    height: 40px !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: petal-fall linear infinite;
+}
+
+/* ၂။ PC Layout */
+@media (min-width: 1024px) {
+    header::before, header::after {
+        content: "";
+        position: absolute;
+        bottom: 20px;
+        width: 180px !important;
+        height: 180px !important;
+        background: url('silver-bowl.png') no-repeat center/contain;
+        z-index: 5;
+    }
+    header::before { left: 30px; }
+    header::after { right: 30px; }
+}
+
+/* ၃။ Mobile Layout (Profile -> Name -> Social) အစီလိုက်ဖြစ်စေရန် */
+@media (max-width: 768px) {
+    header {
+        height: auto !important;
+        min-height: 100vh !important;
+        display: flex !important;
+        flex-direction: column !important; /* အပေါ်အောက် အစီလိုက်ဖြစ်စေရန် */
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 80px 20px !important;
+        gap: 20px !important;
+        position: relative !important;
+    }
+
+    /* Profile Block ကို အပေါ်ဆုံးပို့ခြင်း */
+    .header-main-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .header-profile-block {
+        order: 1 !important; /* အစီအစဉ် ၁ */
+        margin-bottom: 20px !important;
+    }
+
+    .header-profile-frame {
+        width: 180px !important;
+        height: 180px !important;
+        margin: 0 auto !important;
+        position: static !important;
+    }
+
+    /* Text Block (Name) ကို အလယ်ပို့ခြင်း */
+    .header-text-block {
+        order: 2 !important; /* အစီအစဉ် ၂ */
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    header h1 {
+        font-size: 2.8em !important;
+        letter-spacing: 3px !important;
+        margin: 10px 0 !important;
+        position: static !important;
+    }
+
+    /* Social Icons */
+    .hero-socials {
+        order: 3 !important; /* အစီအစဉ် ၃ */
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        margin-top: 10px !important;
+    }
+
+    /* Mobile ငွေဖလား ၂ ခု */
+    header::before, header::after {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        width: 120px !important;
+        height: 120px !important;
+        background: url('silver-bowl.png') no-repeat center/contain;
+        z-index: 10;
+    }
+    header::before { left: 0px; }
+    header::after { right: 0px; }
+}
+
+@keyframes petal-fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+/* PC Layout အတွက် သီးသန့် (ဒေါင့်ကပ်ပန်းခက် + ပန်းအိုး ၂ လုံး) */
+@media (min-width: 1024px) {
+    
+    /* ၁။ ဘယ်ဘက်အပေါ်ဒေါင့်ကပ် ပိတောက်ပန်းခက် */
+    header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 350px;
+        height: 350px;
+        background: url('padauk-corner.png') no-repeat top left/contain;
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    /* ၂။ အောက်က ပန်းအိုး ၂ လုံး (ဘယ်/ညာ) ပြန်ပေါ်လာအောင် လုပ်ခြင်း */
+    .bowl-container {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between; /* ဒါက ဘယ်ညာ ခွဲပေးတာပါ */
+        padding: 0 50px;
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    .bowl {
+        width: 150px; /* ပန်းအိုး ဆိုဒ် */
+        height: auto;
+    }
+}

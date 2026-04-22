@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Certifications</title>
+    <style>
+        /* တစ်ခါတည်း အလှဆင်ဖို့ CSS ကို ဒီမှာပဲ ထည့်ပေးထားတယ် */
+        body {
+            background: #0a0a0a; /* Dark background */
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        /* Liquid Glass Box */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .glass-box {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .glass-box:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 210, 255, 0.5); /* Cyan color glow */
+        }
+
+        .cert-img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: #00d2ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">← Back</a>
+
+    <h1 style="color: #00d2ff; letter-spacing: 2px;">CERTIFICATIONS</h1>
+    
+    <div class="cert-grid">
+        <div class="glass-box">
+            <img src="DMM.JPG" class="cert-img"> <p>Marketing Management Diploma</p>
+        </div>
+
+        <div class="glass-box">
+            <img src="GDesign.JPG" class="cert-img">
+            <p>Graphic Design Certificate</p>
+        </div>
+
+        <div class="glass-box">
+            <img src="OMM.JPG" class="cert-img">
+            <p>Office Management Certificate</p>
+        </div>
+    </div>
+
+</body>
+</html>
