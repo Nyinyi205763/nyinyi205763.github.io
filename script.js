@@ -1,155 +1,169 @@
-AOS.init({ duration: 1000, once: true });
-// --- Typewriter Effect ---
-const textElement = document.getElementById('typewriter');
-const phrases = ["Marketing Specialist","Visual Strategist"];
-let phraseIdx = 0, charIdx = 0, isDeleting = false;
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.AOS) {
+    AOS.init({
+      duration: 900,
+      once: true,
+      offset: 80
+    });
+  }
 
-function type() {
-    const currentPhrase = phrases[phraseIdx];
-    if (textElement) {
-        textElement.textContent = isDeleting ? currentPhrase.substring(0, charIdx--) : currentPhrase.substring(0, charIdx++);
-        if (!isDeleting && charIdx > currentPhrase.length) { isDeleting = true; setTimeout(type, 2000); }
-        else if (isDeleting && charIdx === 0) { isDeleting = false; phraseIdx = (phraseIdx + 1) % phrases.length; setTimeout(type, 500); }
-        else { setTimeout(type, isDeleting ? 50 : 100); }
+  /* -------------------------
+     Typewriter
+  ------------------------- */
+  const textElement = document.getElementById("typewriter");
+  const phrases = [
+    "Marketing Specialist",
+    "Visual Strategist",
+    "AI-Powered Web Designer"
+  ];
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeWriter() {
+    if (!textElement) return;
+
+    const currentPhrase = phrases[phraseIndex];
+
+    if (isDeleting) {
+      charIndex--;
+      textElement.textContent = currentPhrase.substring(0, charIndex);
+    } else {
+      charIndex++;
+      textElement.textContent = currentPhrase.substring(0, charIndex);
     }
-}
-type();
 
-// --- Lightbox Logic ---
-document.querySelectorAll('.portfolio-grid img').forEach(img => {
-    img.onclick = () => { 
-        document.getElementById('lightbox').style.display = 'flex'; 
-        document.getElementById('lightbox-img').src = img.src; 
-    };
-});
-document.querySelector('.close-btn').onclick = () => { document.getElementById('lightbox').style.display = 'none'; };
-window.onclick = (e) => { if(e.target.className === 'lightbox-modal') document.getElementById('lightbox').style.display = 'none'; };
-// Chat ပွင့်/ပိတ် လုပ်ရန်
-function toggleChat() {
-    const chatBox = document.getElementById('chatBox');
-    chatBox.style.display = (chatBox.style.display === 'none') ? 'flex' : 'none';
-}
+    let typeSpeed = isDeleting ? 45 : 95;
 
-// Enter ခေါက်ရင် စာပို့ရန်
-function handleKeyPress(event) {
-    if (event.key === "Enter") {
-        sendMessage();
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      typeSpeed = 1700;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      typeSpeed = 450;
     }
-}
 
-// စာပို့ခြင်း logic
-function sendMessage() {
-    const input = document.getElementById('chatInput');
-    const body = document.getElementById('chatBody');
-    const message = input.value.trim();
+    setTimeout(typeWriter, typeSpeed);
+  }
 
-    if (message !== "") {
-        // User Message ပြရန်
-        const userDiv = document.createElement('div');
-        userDiv.className = 'user-msg';
-        userDiv.textContent = message;
-        body.appendChild(userDiv);
-        
-        input.value = ""; // Input ရှင်းပစ်ရန်
-        body.scrollTop = body.scrollHeight; // အောက်ဆုံးကို scroll ဆွဲရန်
+  typeWriter();
 
-        // Bot က ပြန်ဖြေတဲ့ ပုံစံလေး (၂ စက္ကန့်အကြာမှာ ပေါ်လာမယ်)
-        setTimeout(() => {
-            const botDiv = document.createElement('div');
-            botDiv.className = 'bot-msg';
-            botDiv.textContent = "Please leave your phone number or email address. I will get back to you soon!";
-            body.appendChild(botDiv);
-            body.scrollTop = body.scrollHeight;
-        }, 1000);
+  /* -------------------------
+     Mobile menu
+  ------------------------- */
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+  }
+
+  /* -------------------------
+     Lightbox
+  ------------------------- */
+  const galleryItems = document.querySelectorAll(".gallery-item");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeLightbox = document.getElementById("closeLightbox");
+
+  if (galleryItems.length && lightbox && lightboxImg) {
+    galleryItems.forEach((img) => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || "Preview";
+        lightbox.classList.add("active");
+        lightbox.setAttribute("aria-hidden", "false");
+      });
+    });
+  }
+
+  if (closeLightbox && lightbox) {
+    closeLightbox.addEventListener("click", () => {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("active");
+        lightbox.setAttribute("aria-hidden", "true");
+      }
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox?.classList.contains("active")) {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
     }
-}
-// ဖိုင်ရဲ့ အောက်ဆုံးမှာ ဒါလေးကို copy ယူထည့်ပါ
-window.addEventListener('scroll', () => {
+  });
+
+  /* -------------------------
+     Blob parallax
+  ------------------------- */
+  const blob1 = document.querySelector(".blob-1");
+  const blob2 = document.querySelector(".blob-2");
+  const blob3 = document.querySelector(".blob-3");
+
+  window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
-    
-    // Blob တွေကို scroll speed မတူဘဲ ရွေ့ခိုင်းတာ
-    if(document.querySelector('.blob-1')) {
-        document.querySelector('.blob-1').style.transform = `translateY(${scrollY * 0.3}px)`;
-    }
-    if(document.querySelector('.blob-2')) {
-        document.querySelector('.blob-2').style.transform = `translateY(${scrollY * -0.2}px)`;
-    }
-    if(document.querySelector('.blob-3')) {
-        document.querySelector('.blob-3').style.transform = `translateY(${scrollY * 0.1}px)`;
-    }
-});
-/* --- Thingyan Petal/Leaf Effect (Optimized) --- */
-function startThingyanEffect() {
-    const isThingyanCSS = Array.from(document.styleSheets).some(s => s.href && s.href.includes('thingyan.css'));
-    
-    if (isThingyanCSS) {
-        // ပုံ Link များ - Transparent PNG ဖြစ်ရပါမယ်
-        const images = ['petal1.png', 'petal2.png', 'leaf1.png'];
-        const isMobile = window.innerWidth <= 768;
-        const intervalTime = isMobile ? 300 : 150; // Mobile မှာ အရမ်းမများအောင် လျှော့ကျွေးမယ်
 
-        setInterval(() => {
-            const decor = document.createElement('div');
-            decor.classList.add('petal-leaf');
-            
-            // random ပုံ ရွေးချယ်ခြင်း
-            const randomImg = images[Math.floor(Math.random() * images.length)];
-            decor.style.backgroundImage = `url(${randomImg})`;
-            
-            // random နေရာ၊ အရွယ်အစားနှင့် အမြန်နှုန်း
-          const size = isMobile ? (Math.random() * 15 + 20) : (Math.random() * 20 + 30); 
-// PC မှာ 30px-50px အထိ ရှိလာမှာမို့လို့ ဘာကျနေလဲဆိုတာ သေချာမြင်ရပါလိမ့်မယ်
-            decor.style.width = size + "px";
-            decor.style.height = size + "px";
-            decor.style.left = Math.random() * 100 + "vw";
-            decor.style.animationDuration = Math.random() * 2 + 3 + "s"; // 3-5 စက္ကန့်အတွင်းကျမယ်
-            decor.style.animationDelay = Math.random() * 2 + "s"; // random delay
-            
-            document.body.appendChild(decor);
-            
-            // Performance အတွက် ၅ စက္ကန့်ပြည့်ရင် ပြန်ဖျက်မယ်
-            setTimeout(() => { decor.remove(); }, 5000);
-        }, intervalTime);
-    }
-}
+    if (blob1) blob1.style.transform = `translateY(${scrollY * 0.18}px)`;
+    if (blob2) blob2.style.transform = `translateY(${scrollY * -0.12}px)`;
+    if (blob3) blob3.style.transform = `translateY(${scrollY * 0.08}px)`;
+  });
 
-window.addEventListener('load', startThingyanEffect);
-/* =========================
-   🔥 SOCIAL BAR EFFECTS
-========================= */
+  /* -------------------------
+     Stagger reveal for social icons
+  ------------------------- */
+  const staggerIcons = document.querySelector(".stagger-icons");
 
-/* Stagger reveal on scroll */
-const staggerIcons = document.querySelector('.stagger-icons');
-
-if (staggerIcons) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                staggerIcons.classList.add('show');
-            }
+  if (staggerIcons) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            staggerIcons.classList.add("show");
+          }
         });
-    }, { threshold: 0.2 });
+      },
+      { threshold: 0.2 }
+    );
 
     observer.observe(staggerIcons);
-}
+  }
 
-/* Ripple click effect */
-document.querySelectorAll('.ripple-btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-        const ripple = document.createElement('span');
-        ripple.classList.add('ripple');
+  /* -------------------------
+     Ripple effect
+  ------------------------- */
+  document.querySelectorAll(".ripple-btn").forEach((button) => {
+    button.addEventListener("click", function (e) {
+      const ripple = document.createElement("span");
+      ripple.classList.add("ripple");
 
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
 
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+      ripple.style.width = `${size}px`;
+      ripple.style.height = `${size}px`;
+      ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+      ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
 
-        this.appendChild(ripple);
+      this.appendChild(ripple);
 
-        setTimeout(() => {
-            ripple.remove();
-        }, 650);
+      setTimeout(() => {
+        ripple.remove();
+      }, 650);
     });
+  });
 });
