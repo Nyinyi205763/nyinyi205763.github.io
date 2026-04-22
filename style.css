@@ -301,7 +301,34 @@ body {
   object-fit: cover;
   border-radius: 20px;
 }
+@media (max-width: 760px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: center;
+  }
 
+  .hero-text {
+    align-items: center;
+  }
+
+  .hero-profile {
+    order: -1;
+  }
+
+  .profile-frame {
+    width: min(260px, 100%);
+    margin: 0 auto;
+  }
+
+  .glass-line {
+    margin: 0 auto 24px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
 /* Social Bar */
 .social-glass-bar {
   width: 100%;
