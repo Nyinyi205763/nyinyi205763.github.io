@@ -1,6 +1,5 @@
 :root {
   --bg-main: #080b12;
-  --bg-secondary: #0e1320;
   --glass-bg: rgba(255, 255, 255, 0.06);
   --glass-border: rgba(255, 255, 255, 0.14);
 
@@ -14,7 +13,6 @@
 
   --radius-lg: 30px;
   --radius-md: 22px;
-  --radius-sm: 16px;
   --transition: 0.35s ease;
 }
 
@@ -39,7 +37,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Animated background orbs */
+/* Background Orbs */
 .bg-orb {
   position: fixed;
   border-radius: 50%;
@@ -270,7 +268,7 @@ body {
   border-radius: 20px;
 }
 
-/* Social glass bar */
+/* Social Bar */
 .social-glass-bar {
   width: 100%;
 }
@@ -407,7 +405,7 @@ body {
   letter-spacing: 1.5px;
 }
 
-/* Glass card */
+/* Glass Card */
 .glass-card {
   padding: 34px;
   border-radius: var(--radius-lg);
@@ -648,4 +646,162 @@ a.project-card:hover {
 .contact-copy {
   max-width: 720px;
   margin: 0 auto 28px;
- 
+  color: var(--text-muted);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-light));
+  color: white;
+  transition: var(--transition);
+  box-shadow: 0 10px 24px rgba(24, 119, 242, 0.22);
+}
+
+.contact-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(24, 119, 242, 0.28);
+}
+
+/* Lightbox */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 2000;
+}
+
+.lightbox-modal.active {
+  display: flex;
+}
+
+#lightbox-img {
+  max-width: min(1000px, 95vw);
+  max-height: 88vh;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+}
+
+.close-btn {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Footer */
+.site-footer {
+  padding: 28px 20px 36px;
+  text-align: center;
+  color: #a9a9a9;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    text-align: center;
+  }
+
+  .hero-text {
+    align-items: center;
+  }
+
+  .glass-line {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .site-nav {
+    top: 14px;
+  }
+
+  .nav-inner {
+    padding: 14px 16px;
+    border-radius: 26px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px;
+    border-radius: 24px;
+    background: rgba(8, 11, 18, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hero-section {
+    padding-top: 120px;
+  }
+
+  .hero-text h1 {
+    letter-spacing: 6px;
+  }
+
+  .subtitle {
+    letter-spacing: 2px;
+    font-size: 1rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
