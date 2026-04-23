@@ -139,3 +139,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+function trackProjectClick(projectId, projectName) {
+  if (typeof gtag === "function") {
+    gtag("event", "project_click", {
+      event_category: "Portfolio",
+      event_label: projectId,
+      project_name: projectName
+    });
+  }
+}
+
+function trackResumeDownload() {
+  if (typeof gtag === "function") {
+    gtag("event", "resume_download", {
+      event_category: "Portfolio",
+      event_label: "Download Resume"
+    });
+  }
+}
