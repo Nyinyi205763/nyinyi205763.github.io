@@ -568,7 +568,28 @@ body {
 
 /* Projects */
 /* ===== PROJECT CARD UPGRADE ===== */
+.project-mockup-card,
+.project-mockup-card * {
+  text-decoration: none !important;
+  color: inherit;
+}
+.mockup-info h3 {
+  color: #ffffff;
+}
 
+.project-en {
+  color: #d8e1f0;
+}
+
+.project-mm {
+  color: #aab8d6;
+}.project-mockup-card {
+  text-decoration: none;
+  color: white;
+}
+.project-mockup-card:hover h3 {
+  text-shadow: 0 0 12px rgba(79, 163, 255, 0.6);
+}
 .project-mockup-card {
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(14px);
