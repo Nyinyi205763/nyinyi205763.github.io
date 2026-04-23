@@ -567,160 +567,117 @@ body {
 }
 
 /* Projects */
-.project-showcase {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 26px;
-  margin-top: 30px;
-}
+/* ===== PROJECT CARD UPGRADE ===== */
 
 .project-mockup-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-decoration: none;
-  border-radius: 28px;
-  padding: 26px 22px 22px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(79, 163, 255, 0.18);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
-  overflow: hidden;
-  transition: 0.35s ease;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  border-radius: 26px;
+  border: 1px solid rgba(79, 163, 255, 0.2);
+  transition: 0.4s ease;
   position: relative;
+  overflow: hidden;
+}
+
+/* Glow Background */
+.project-mockup-card::before {
+  content: "";
+  position: absolute;
+  width: 160%;
+  height: 160%;
+  top: -30%;
+  left: -30%;
+  background: radial-gradient(circle, rgba(79,163,255,0.18), transparent 60%);
+  opacity: 0;
+  transition: 0.4s ease;
+  z-index: 0;
+}
+
+/* Hover Glow */
+.project-mockup-card:hover::before {
+  opacity: 1;
 }
 
 .project-mockup-card:hover {
-  transform: translateY(-10px);
-  border-color: rgba(79, 163, 255, 0.55);
-  box-shadow: 0 18px 44px rgba(24, 119, 242, 0.18);
+  transform: translateY(-10px) scale(1.01);
+  border-color: rgba(79, 163, 255, 0.5);
+  box-shadow: 0 20px 50px rgba(24, 119, 242, 0.25);
 }
 
-.mockup-image-wrap {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 22px;
-}
+/* ===== MOCKUP FLOAT EFFECT ===== */
 
 .mockup-image-wrap img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.32));
-  transition: transform 0.35s ease;
+  transition: 0.4s ease;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
 }
 
+/* Floating */
 .project-mockup-card:hover .mockup-image-wrap img {
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-8px) scale(1.03);
 }
 
-/* Phone style for project 1 */
+/* Phone glow (Project 1) */
 .mockup-phone img {
-  max-height: 420px;
-  width: auto;
+  box-shadow: 0 0 40px rgba(255, 140, 0, 0.25);
 }
 
-/* Laptop style for project 2,3 */
+/* Laptop glow (Project 2,3) */
 .mockup-laptop img {
-  width: 100%;
-  max-height: 260px;
-  object-fit: contain;
+  box-shadow: 0 0 40px rgba(79, 163, 255, 0.25);
 }
 
-.mockup-info {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+/* ===== TEXT UPGRADE ===== */
+
+.mockup-info h3 {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(79, 163, 255, 0.3);
 }
 
 .project-label {
+  background: rgba(79, 163, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 999px;
   display: inline-block;
-  margin-bottom: 12px;
-  color: #9fc2ff;
-  font-weight: 800;
-  font-size: 0.92rem;
 }
 
-.mockup-info h3 {
-  margin-bottom: 12px;
-  color: white;
-  font-size: 1.45rem;
-  line-height: 1.25;
-}
-
-.project-en {
-  color: #f1f6ff;
-  margin-bottom: 10px;
-}
-
-.project-mm {
-  color: #c4d4ef;
-  margin-bottom: 18px;
-}
-
-.project-bottom-btn {
-  margin-top: auto;
-  padding-top: 12px;
-}
+/* ===== BUTTON UPGRADE ===== */
 
 .demo-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 150px;
-  padding: 12px 18px;
-  border-radius: 999px;
   background: linear-gradient(135deg, #1877f2, #4fa3ff);
-  color: #ffffff;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  box-shadow: 0 10px 24px rgba(24, 119, 242, 0.22);
+  border-radius: 999px;
+  padding: 12px 20px;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(24, 119, 242, 0.3);
+  transition: 0.3s ease;
 }
 
-.project-mockup-card:hover .demo-btn {
-  box-shadow: 0 14px 30px rgba(24, 119, 242, 0.34);
+.demo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(24, 119, 242, 0.5);
 }
 
-@media (max-width: 1100px) {
-  .project-showcase {
-    grid-template-columns: 1fr;
-  }
+/* ===== CARD LIGHT EFFECT ===== */
 
-  .mockup-phone img {
-    max-height: 360px;
-  }
-
-  .mockup-laptop img {
-    max-height: 240px;
-  }
+.project-mockup-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: skewX(-25deg);
 }
 
-@media (max-width: 760px) {
-  .project-mockup-card {
-    padding: 22px 18px 18px;
-    border-radius: 24px;
-  }
+/* Shine animation */
+.project-mockup-card:hover::after {
+  animation: shine 1s ease;
+}
 
-  .mockup-info h3 {
-    font-size: 1.25rem;
-  }
-
-  .project-en,
-  .project-mm {
-    font-size: 0.95rem;
-  }
-
-  .demo-btn {
-    width: 100%;
-  }
-
-  .mockup-phone img {
-    max-height: 300px;
-  }
-
-  .mockup-laptop img {
-    max-height: 200px;
+@keyframes shine {
+  100% {
+    left: 130%;
   }
 }
 
