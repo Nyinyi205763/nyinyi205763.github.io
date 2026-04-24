@@ -849,49 +849,58 @@ body {
 /* -------------------------
    RESPONSIVE
 ------------------------- */
+/* =============================
+
+   MOBILE 🔥 FIX
+
+============================= */
+
 @media (max-width: 760px) {
-  .project-mockup-card {
-    padding: 22px 18px 22px;
-    border-radius: 24px;
-  }
-/* 🔥 MOBILE FIX */
-@media (max-width: 760px) {
+
   .project-showcase {
-    grid-template-columns: 1fr !important; /* ⬅️ တစ်ကြောင်းတည်း */
-    gap: 20px;
+
+    grid-template-columns: 1fr; /* 🔥 IMPORTANT FIX */
+
   }
-}
+
+  .project-mockup-card {
+
+    padding: 22px;
+
+  }
+
   .mockup-image-wrap {
-    min-height: 260px; /* ⬆️ height တိုး */
-    margin-bottom: 18px;
+
+    min-height: 260px;
+
   }
 
-  /* 📱 Phone mockup */
   .mockup-phone img {
+
     max-width: 85%;
+
     max-height: 300px;
+
   }
 
-  /* 💻 Laptop mockup (MAIN FIX 🔥) */
   .mockup-laptop img {
-    width: 115%;       /* ⬅️ image ကိုနည်းနည်း zoom */
+
+    width: 115%;
+
     max-width: 115%;
-    max-height: 240px; /* ⬆️ height တိုး */
-  }
 
-  .mockup-info h3 {
-    font-size: 1.05rem;
-  }
+    max-height: 240px;
 
-  .project-en,
-  .project-mm {
-    font-size: 0.95rem;
   }
 
   .demo-btn {
+
     width: 100%;
-    min-width: unset;
+
+    text-align: center;
+
   }
+
 }
 /* Skills */
 .skills-grid {
