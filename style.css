@@ -854,7 +854,13 @@ body {
     padding: 22px 18px 22px;
     border-radius: 24px;
   }
-
+/* 🔥 MOBILE FIX */
+@media (max-width: 760px) {
+  .project-showcase {
+    grid-template-columns: 1fr !important; /* ⬅️ တစ်ကြောင်းတည်း */
+    gap: 20px;
+  }
+}
   .mockup-image-wrap {
     min-height: 260px; /* ⬆️ height တိုး */
     margin-bottom: 18px;
