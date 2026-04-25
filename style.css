@@ -1155,3 +1155,23 @@ body {
     justify-content: center;
   }
 }
+/* ===== SOCIAL SCROLL (PIN EFFECT) ===== */
+
+.social-scroll-section {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.social-scroll-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.social-card {
+  min-width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  padding: 20px;
+}
