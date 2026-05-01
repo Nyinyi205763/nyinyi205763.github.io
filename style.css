@@ -1154,23 +1154,103 @@ body {
     justify-content: center;
   }
 }
-/* ===== SOCIAL SCROLL (PIN EFFECT) ===== */
+/* ===== SOCIAL DESIGNS - GLASS CARD SCROLL ===== */
 
 .social-scroll-section {
+  position: relative;
   height: 100vh;
   overflow: hidden;
-  position: relative;
+  padding-top: 120px;
+}
+
+.social-title {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  z-index: 5;
+}
+
+.social-title h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.social-title p {
+  color: var(--text-soft);
+  font-size: 0.95rem;
 }
 
 .social-scroll-wrapper {
   display: flex;
+  align-items: center;
+  gap: 28px;
   height: 100%;
+  will-change: transform;
 }
 
 .social-card {
-  min-width: 100vw;
+  flex: 0 0 min(420px, 82vw);
+  height: min(560px, 72vh);
+  padding: 18px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(79, 163, 255, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-card::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle, rgba(79, 163, 255, 0.18), transparent 62%);
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.social-card img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  padding: 20px;
+  display: block;
+  object-fit: contain;
+  border-radius: 22px;
+  background: rgba(5, 10, 20, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 760px) {
+  .social-scroll-section {
+    height: auto;
+    overflow: visible;
+    padding-top: 20px;
+  }
+
+  .social-title {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-bottom: 18px;
+  }
+
+  .social-scroll-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    height: auto;
+  }
+
+  .social-card {
+    flex: unset;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
 }
