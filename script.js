@@ -157,29 +157,24 @@ function trackResumeDownload() {
     });
   }
 }
-// ===== GSAP SOCIAL SCROLL =====
-const script1 = document.createElement("script");
-script1.src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js";
-document.body.appendChild(script1);
-
-const script2 = document.createElement("script");
-script2.src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js";
-document.body.appendChild(script2);
-
-script2.onload = () => {
+// ===== GSAP SOCIAL GLASS CARD SCROLL =====
+if (window.gsap && window.ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger);
 
+  const wrapper = document.querySelector(".social-scroll-wrapper");
   const cards = gsap.utils.toArray(".social-card");
 
-  gsap.to(cards, {
-    xPercent: -100 * (cards.length - 1),
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".social-scroll-section",
-      pin: true,
-      scrub: 1,
-      snap: 1 / (cards.length - 1),
-      end: () => "+=" + window.innerWidth * (cards.length - 1)
-    }
-  });
-};
+  if (wrapper && cards.length > 1 && window.innerWidth > 760) {
+    gsap.to(wrapper, {
+      x: () => -(wrapper.scrollWidth - document.querySelector(".social-scroll-section").offsetWidth),
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".social-scroll-section",
+        pin: true,
+        scrub: 1,
+        end: () => "+=" + wrapper.scrollWidth,
+        invalidateOnRefresh: true
+      }
+    });
+  }
+}
