@@ -1352,3 +1352,86 @@ body {
     padding: 24px;
   }
 }
+/* ===== ABOUT PROFESSIONAL PROFILE ===== */
+
+.about-pro-card {
+  padding: 34px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(79, 163, 255, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.24);
+}
+
+.about-copy {
+  max-width: 980px;
+  margin-bottom: 28px;
+}
+
+.about-copy p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.about-copy p + p {
+  margin-top: 14px;
+}
+
+.about-skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.about-skill-card {
+  padding: 22px 20px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(24,119,242,0.14), rgba(255,255,255,0.035));
+  border: 1px solid rgba(79, 163, 255, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+  transition: 0.35s ease;
+}
+
+.about-skill-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(79, 163, 255, 0.42);
+  box-shadow:
+    0 16px 34px rgba(0,0,0,0.22),
+    0 0 22px rgba(24,119,242,0.18);
+}
+
+.about-skill-card span {
+  display: block;
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+.about-skill-card h3 {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.about-skill-card p {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .about-skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .about-pro-card {
+    padding: 24px;
+  }
+
+  .about-skill-grid {
+    grid-template-columns: 1fr;
+  }
+}
