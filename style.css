@@ -1435,3 +1435,131 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================
+   NEXUS FREELANCE SECTION
+========================= */
+
+.freelance-card{
+
+  display:flex;
+  align-items:center;
+  gap:40px;
+
+  padding:40px;
+
+  border-radius:32px;
+
+  background:rgba(255,255,255,0.06);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border:1px solid rgba(79,163,255,0.18);
+
+  box-shadow:
+  0 20px 50px rgba(0,0,0,0.25);
+
+}
+
+.freelance-logo{
+
+  flex-shrink:0;
+
+}
+
+.freelance-logo img{
+
+  width:180px;
+  height:180px;
+  object-fit:contain;
+
+  filter:
+  drop-shadow(0 0 20px rgba(24,119,242,0.45))
+  drop-shadow(0 0 40px rgba(24,119,242,0.25));
+
+}
+
+.freelance-content h3{
+
+  color:#fff;
+
+  font-size:2rem;
+
+  margin-bottom:12px;
+
+}
+
+.freelance-content p{
+
+  color:var(--text-soft);
+
+  line-height:1.8;
+
+  max-width:600px;
+
+  margin-bottom:25px;
+
+}
+
+.freelance-btn{
+
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:14px 34px;
+
+  border-radius:999px;
+
+  font-weight:700;
+
+  text-decoration:none;
+
+  color:#fff;
+
+  background:linear-gradient(
+  135deg,
+  #1877f2,
+  #4fa3ff
+  );
+
+  box-shadow:
+  0 0 25px rgba(24,119,242,0.4);
+
+  transition:.3s ease;
+
+}
+
+.freelance-btn:hover{
+
+  transform:translateY(-4px);
+
+  box-shadow:
+  0 0 35px rgba(24,119,242,0.65);
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+  .freelance-card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:28px;
+
+  }
+
+  .freelance-logo img{
+
+    width:140px;
+    height:140px;
+
+  }
+
+}
