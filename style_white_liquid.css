@@ -1765,3 +1765,140 @@ body::after {
     flex-wrap: wrap;
   }
 }
+
+/* =========================
+LIQUID GLASS LOADER
+========================= */
+
+#loader{
+position:fixed;
+inset:0;
+z-index:999999;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:
+radial-gradient(circle at top left,
+rgba(24,119,242,.18),
+transparent 30%),
+
+radial-gradient(circle at bottom right,
+rgba(162,89,255,.16),
+transparent 35%),
+
+linear-gradient(
+135deg,
+#ffffff,
+#f6f9ff
+);
+
+transition:.6s ease;
+}
+
+#loader.hide{
+opacity:0;
+visibility:hidden;
+}
+
+.loader-card{
+
+width:min(400px,90vw);
+
+padding:40px 30px;
+
+text-align:center;
+
+border-radius:36px;
+
+background:
+rgba(255,255,255,.55);
+
+border:
+1px solid rgba(255,255,255,.85);
+
+backdrop-filter:
+blur(40px)
+saturate(180%);
+
+-webkit-backdrop-filter:
+blur(40px)
+saturate(180%);
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.08),
+
+inset 0 1px 0 rgba(255,255,255,.95),
+
+inset 0 -1px 0 rgba(255,255,255,.35);
+}
+
+.loader-logo{
+
+font-size:1.4rem;
+font-weight:900;
+
+color:#1877f2;
+
+letter-spacing:4px;
+
+margin-bottom:20px;
+}
+
+.loader-spinner{
+
+width:70px;
+height:70px;
+
+margin:0 auto 22px;
+
+border-radius:50%;
+
+border:
+4px solid rgba(24,119,242,.12);
+
+border-top:
+4px solid #1877f2;
+
+animation:
+spin 1s linear infinite;
+}
+
+.loader-card h3{
+
+font-family:
+"Noto Sans Myanmar",
+sans-serif;
+
+font-size:1.2rem;
+
+color:#0f172a;
+
+margin-bottom:12px;
+}
+
+.loader-card p{
+
+font-family:
+"Noto Sans Myanmar",
+sans-serif;
+
+color:#64748b;
+
+font-size:.95rem;
+
+line-height:1.7;
+}
+
+@keyframes spin{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+}
+
