@@ -2590,3 +2590,31 @@ REAL PNG ICONS
     grid-template-columns:1fr;
   }
 }
+.hire-me-btn{
+  margin-top:18px;
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  width:min(360px,100%);
+  padding:16px 28px;
+  border-radius:999px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:950;
+  background:linear-gradient(135deg,#061bb8,#1877f2,#4fa3ff);
+  box-shadow:0 20px 48px rgba(24,119,242,.28);
+  transition:.35s ease;
+}
+
+.hire-me-btn span{
+  font-size:.78rem;
+  font-weight:750;
+  opacity:.86;
+}
+
+.hire-me-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 28px 65px rgba(24,119,242,.36);
+}
