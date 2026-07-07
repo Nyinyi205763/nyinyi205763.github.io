@@ -2702,3 +2702,142 @@ body{
     Arial,
     sans-serif;
 }
+
+
+/* ===== PREMIUM SOFT ANIMATIONS ===== */
+
+.hero-clean-text h1{
+  animation: heroFadeUp .9s ease both;
+}
+
+.hero-tagline{
+  animation: heroFadeUp .9s ease .15s both;
+}
+
+.hero-action-group{
+  animation: heroFadeUp .9s ease .3s both;
+}
+
+.hero-social-icons{
+  animation: heroFadeUp .9s ease .45s both;
+}
+
+.hero-clean-photo img{
+  animation: photoFloat 5s ease-in-out infinite;
+}
+
+@keyframes heroFadeUp{
+  from{
+    opacity:0;
+    transform:translateY(26px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes photoFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-12px);
+  }
+}
+
+/* Buttons */
+.glass-action-btn,
+.hero-social-icons a,
+.contact-btn,
+.demo-btn,
+.brand-btn,
+.knowledge-btn{
+  position:relative;
+  overflow:hidden;
+}
+
+.glass-action-btn::after,
+.hero-social-icons a::after,
+.contact-btn::after,
+.demo-btn::after,
+.brand-btn::after,
+.knowledge-btn::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:70%;
+  height:100%;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.75),
+    transparent
+  );
+  transform:skewX(-24deg);
+}
+
+.glass-action-btn:hover::after,
+.hero-social-icons a:hover::after,
+.contact-btn:hover::after,
+.demo-btn:hover::after,
+.brand-btn:hover::after,
+.knowledge-btn:hover::after{
+  animation: softShine .8s ease;
+}
+
+@keyframes softShine{
+  to{
+    left:130%;
+  }
+}
+
+/* Cards */
+.brand-card,
+.knowledge-card,
+.about-skill-card,
+.skill-box,
+.project-mockup-card,
+.metric-card,
+.toolkit-icons a{
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    filter .35s ease;
+}
+
+.brand-card:hover,
+.knowledge-card:hover,
+.about-skill-card:hover,
+.skill-box:hover,
+.project-mockup-card:hover,
+.metric-card:hover{
+  transform:translateY(-8px);
+  filter:saturate(1.05);
+}
+
+/* Nav softer */
+.nav-inner{
+  animation: navDrop .75s ease both;
+}
+
+@keyframes navDrop{
+  from{
+    opacity:0;
+    transform:translateY(-16px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation:none !important;
+    transition:none !important;
+    scroll-behavior:auto !important;
+  }
+}
