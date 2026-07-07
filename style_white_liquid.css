@@ -2690,3 +2690,15 @@ REAL PNG ICONS
     min-width:unset;
   }
 }
+body{
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
