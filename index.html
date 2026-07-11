@@ -45,89 +45,95 @@
   <!-- Favicon -->
   <link rel="icon" href="favicon.png" type="image/png">
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "@id":"https://nyinyi205763.github.io/#person",
-    "name":"Nyi Nyi Kyaw Thu",
-    "givenName":"Nyi Nyi",
-    "familyName":"Kyaw Thu",
-    "birthDate":"2003-01-24",
-    "nationality":"Myanmar",
-
-    "jobTitle":"Creative Marketer, Graphic Designer & AI-Powered Web Developer",
-
-    "description":"Nyi Nyi Kyaw Thu is a Creative Marketer, Graphic Designer, AI-Powered Web Developer and Founder of Nexus Solutions, specializing in Digital Marketing, Marketing Analytics, SEO, Branding and AI-powered business websites.",
-    "url":"https://nyinyi205763.github.io",
-
-    "image":"https://nyinyi205763.github.io/Web Cover Photo.jpg",
-
-    "email":"mailto:career.nyinyikyawthu@gmail.com",
-
-    "telephone":"+959764849398",
-    "alumniOf":[
-      {
-        "@type":"EducationalOrganization",
-        "name":"MIBA University",
-        "description":"Diploma in Marketing Management"
-      },
-      {
-        "@type":"EducationalOrganization",
-        "name":"ABE Qualification (UK)",
-        "description":"Diploma in International Business Administration"
-      }
-    ],
-
-    "knowsAbout":[
-      "Digital Marketing",
-      "Marketing Strategy",
-      "Marketing Analytics",
-      "Google Analytics",
-      "SEO",
-      "Graphic Design",
-      "AI-Powered Website Development",
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "SWOT Analysis",
-      "Competition Analysis",
-      "Customer Buying Behavior",
-      "Business Administration",
-      "Content Strategy",
-      "Brand Development",
-      "Google Search Console",
-      "ROAS",
-      "CAC",
-      "CLTV"
-    ],
-
-    "sameAs":[
-      "https://nyinyi205763.github.io",
-      "https://nyinyi205763.github.io/nexus-solutions/",
-      "https://www.facebook.com/share/1L73ufKECQ/?mibextid=wwXIfr",
-      "https://www.linkedin.com/in/nyi-nyi-kyaw-thu-3348253b9?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
-      "https://t.me/Wesley_X",
-      "https://www.tiktok.com/@nyinyi205763",
-      "http://viber.me/959764849398"
-    ]
-  }
+  <!-- JSON-LD: Person + Nexus Solutions -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://nyinyi205763.github.io/nexus-solutions/#organization",
-  "name": "Nexus Solutions",
-  "url": "https://nyinyi205763.github.io/nexus-solutions/",
-  "logo": "https://nyinyi205763.github.io/nexus-logo.png",
-  "description": "Nexus Solutions is a creative digital service brand founded by Nyi Nyi Kyaw Thu, providing AI-powered websites, digital marketing, graphic design and business systems.",
-  "founder": {
-    "@id": "https://nyinyi205763.github.io/#person"
-  },
-  "sameAs": [
-    "https://nyinyi205763.github.io/nexus-solutions/",
-    "https://www.tiktok.com/@nexussolution.mm"
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://nyinyi205763.github.io/#person",
+      "name": "Nyi Nyi Kyaw Thu",
+      "givenName": "Nyi Nyi",
+      "familyName": "Kyaw Thu",
+      "birthDate": "2003-01-24",
+      "nationality": {
+        "@type": "Country",
+        "name": "Myanmar"
+      },
+      "jobTitle": "Creative Marketer, Graphic Designer & AI-Powered Web Developer",
+      "description": "Nyi Nyi Kyaw Thu is a Creative Marketer, Graphic Designer, AI-Powered Web Developer and founder of Nexus Solutions, specializing in digital marketing, marketing analytics, SEO, branding and AI-powered business websites.",
+      "url": "https://nyinyi205763.github.io/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nyinyi205763.github.io/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://nyinyi205763.github.io/Web%20Cover%20Photo.jpg"
+      },
+      "email": "mailto:career.nyinyikyawthu@gmail.com",
+      "telephone": "+959764849398",
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "MIBA University",
+          "description": "Diploma in Marketing Management"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "ABE Qualification (UK)",
+          "description": "Diploma in International Business Administration"
+        }
+      ],
+      "knowsAbout": [
+        "Digital Marketing",
+        "Marketing Strategy",
+        "Marketing Analytics",
+        "Google Analytics",
+        "Google Search Console",
+        "Search Engine Optimization",
+        "Graphic Design",
+        "AI-Powered Website Development",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "SWOT Analysis",
+        "Competitor Analysis",
+        "Customer Buying Behavior",
+        "Business Administration",
+        "Content Strategy",
+        "Brand Development",
+        "ROAS",
+        "CAC",
+        "CLTV"
+      ],
+      "sameAs": [
+        "https://nyinyi205763.github.io/",
+        "https://www.facebook.com/share/1L73ufKECQ/?mibextid=wwXIfr",
+        "https://www.linkedin.com/in/nyi-nyi-kyaw-thu-3348253b9",
+        "https://t.me/Wesley_X",
+        "https://www.tiktok.com/@nyinyi205763",
+        "https://viber.me/959764849398"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://nyinyi205763.github.io/nexus-solutions/#organization",
+      "name": "Nexus Solutions",
+      "url": "https://nyinyi205763.github.io/nexus-solutions/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://nyinyi205763.github.io/nexus-logo.png"
+      },
+      "description": "Nexus Solutions is a creative digital service brand founded by Nyi Nyi Kyaw Thu, providing AI-powered websites, digital marketing, graphic design and business systems.",
+      "founder": {
+        "@id": "https://nyinyi205763.github.io/#person"
+      },
+      "sameAs": [
+        "https://www.tiktok.com/@nexussolution.mm"
+      ]
+    }
   ]
 }
 </script>
