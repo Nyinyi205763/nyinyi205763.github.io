@@ -460,7 +460,7 @@ body::before {
 }
 
 .glass-card {
-  padding: 34px;
+  padding: 50px;
   border-radius: var(--radius-lg);
 }
 
