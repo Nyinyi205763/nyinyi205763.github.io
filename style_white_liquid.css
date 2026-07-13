@@ -2841,3 +2841,13 @@ body{
     scroll-behavior:auto !important;
   }
 }
+
+
+/* Remove the outer glass card from About section */
+#about.section {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
