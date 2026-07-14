@@ -2851,3 +2851,229 @@ body{
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
+
+/* ===================================
+FREELANCE SERVICE AUTO BANNER
+=================================== */
+
+.service-banner-section {
+  width: min(1180px, calc(100% - 40px));
+  margin: 78px auto 0;
+}
+
+.service-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  min-height: 390px;
+  overflow: hidden;
+  border-radius: 38px;
+  background: #eaf2ff;
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow:
+    0 26px 70px rgba(15, 23, 42, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+}
+
+.service-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.03);
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease,
+    transform 1.2s ease;
+}
+
+.service-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.service-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.service-banner-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: clamp(28px, 6vw, 76px);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 20, 55, 0.82) 0%,
+      rgba(7, 29, 75, 0.64) 42%,
+      rgba(7, 29, 75, 0.08) 78%
+    );
+}
+
+.service-banner-content {
+  width: min(600px, 72%);
+  color: #ffffff;
+}
+
+.service-banner-label {
+  display: inline-flex;
+  margin-bottom: 14px;
+  padding: 8px 15px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.service-banner-content h2 {
+  margin-bottom: 14px;
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  text-transform: none;
+  border: none;
+  padding: 0;
+}
+
+.service-banner-content p {
+  max-width: 570px;
+  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+  line-height: 1.75;
+}
+
+.service-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 25px;
+  border-radius: 999px;
+  color: #1877f2;
+  background: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  font-weight: 850;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+  transition: 0.3s ease;
+}
+
+.service-banner-btn:hover {
+  transform: translateY(-3px);
+  background: #ffffff;
+}
+
+.service-slider-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  color: #ffffff;
+  background: rgba(8, 20, 45, 0.46);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: 0.3s ease;
+}
+
+.service-slider-arrow:hover {
+  background: rgba(24, 119, 242, 0.84);
+}
+
+.service-slider-prev {
+  left: 20px;
+}
+
+.service-slider-next {
+  right: 20px;
+}
+
+.service-slider-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  z-index: 5;
+  display: flex;
+  gap: 9px;
+  transform: translateX(-50%);
+}
+
+.service-dot {
+  width: 11px;
+  height: 11px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.46);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.service-dot.active {
+  width: 30px;
+  border-radius: 999px;
+  background: #ffffff;
+}
+
+@media (max-width: 760px) {
+  .service-banner-section {
+    width: min(100% - 26px, 1180px);
+    margin-top: 62px;
+  }
+
+  .service-slider {
+    min-height: 500px;
+    aspect-ratio: auto;
+    border-radius: 30px;
+  }
+
+  .service-banner-overlay {
+    align-items: flex-end;
+    padding: 34px 24px 70px;
+    background:
+      linear-gradient(
+        0deg,
+        rgba(5, 20, 55, 0.94) 0%,
+        rgba(5, 20, 55, 0.62) 56%,
+        rgba(5, 20, 55, 0.08) 100%
+      );
+  }
+
+  .service-banner-content {
+    width: 100%;
+  }
+
+  .service-banner-content h2 {
+    font-size: 2.1rem;
+    letter-spacing: -1px;
+  }
+
+  .service-slider-arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .service-slider-prev {
+    left: 12px;
+  }
+
+  .service-slider-next {
+    right: 12px;
+  }
+}
