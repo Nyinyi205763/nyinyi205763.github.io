@@ -192,3 +192,78 @@ loader.classList.add("hide");
 }
 
 });
+
+/* ===================================
+FREELANCE SERVICE AUTO SLIDER
+=================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.getElementById("serviceSlider");
+
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll(".service-slide");
+  const dots = slider.querySelectorAll(".service-dot");
+  const previousButton = slider.querySelector(".service-slider-prev");
+  const nextButton = slider.querySelector(".service-slider-next");
+
+  let currentSlide = 0;
+  let autoSlideTimer;
+
+  function showSlide(index) {
+    currentSlide = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("active", slideIndex === currentSlide);
+    });
+
+    dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("active", dotIndex === currentSlide);
+    });
+  }
+
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function previousSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  function startAutoSlide() {
+    stopAutoSlide();
+    autoSlideTimer = setInterval(nextSlide, 5000);
+  }
+
+  function stopAutoSlide() {
+    if (autoSlideTimer) {
+      clearInterval(autoSlideTimer);
+    }
+  }
+
+  nextButton?.addEventListener("click", () => {
+    nextSlide();
+    startAutoSlide();
+  });
+
+  previousButton?.addEventListener("click", () => {
+    previousSlide();
+    startAutoSlide();
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      showSlide(index);
+      startAutoSlide();
+    });
+  });
+
+  slider.addEventListener("mouseenter", stopAutoSlide);
+  slider.addEventListener("mouseleave", startAutoSlide);
+
+  slider.addEventListener("focusin", stopAutoSlide);
+  slider.addEventListener("focusout", startAutoSlide);
+
+  showSlide(0);
+  startAutoSlide();
+});
